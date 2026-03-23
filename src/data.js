@@ -22,7 +22,7 @@ export const HOME_WORDS = [
 ];
 
 export const STATS = [
-  { value: "2", suffix: "+", label: "Projects" },
+  { value: "5", suffix: "+", label: "Projects" },
   { value: "280", suffix: "+", label: "LeetCode" },
   { value: "4", suffix: "", label: "Certs" },
   { value: "8.16", suffix: "", label: "CGPA" }

@@ -3,10 +3,17 @@ import { AnimatedReveal } from "../components/ui/AnimatedReveal";
 import { Card } from "../components/ui/Card";
 import { Button } from "../components/ui/Button";
 import { Github, ExternalLink, Globe, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function Projects() {
   return (
-    <div className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto"
+    >
       <AnimatedReveal>
         <div className="mb-20">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
@@ -25,7 +32,7 @@ export function Projects() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         {PROJECTS.map((p, idx) => (
           <AnimatedReveal key={p.name} delay={idx * 0.1}>
-            <Card className="overflow-hidden group flex flex-col h-full bg-card hover:border-primary/30 transition-all duration-500">
+            <Card className="overflow-hidden group flex flex-col h-full bg-card hover:border-primary/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(var(--primary),0.15)] transition-all duration-500">
               
               {/* Project Image Shell */}
               <div className="relative h-64 md:h-80 overflow-hidden bg-muted">
@@ -87,6 +94,6 @@ export function Projects() {
           </AnimatedReveal>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

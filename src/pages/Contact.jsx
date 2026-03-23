@@ -48,7 +48,13 @@ export function Contact() {
   ];
 
   return (
-    <div className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto"
+    >
       <AnimatedReveal>
         <div className="mb-16">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
@@ -173,6 +179,6 @@ export function Contact() {
           </Card>
         </AnimatedReveal>
       </div>
-    </div>
+    </motion.div>
   );
 }

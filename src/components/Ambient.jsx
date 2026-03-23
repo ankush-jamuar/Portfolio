@@ -22,13 +22,15 @@ export function Ambient() {
 
     const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    // Stars
-    const stars = Array.from({ length: 140 }, () => ({
+    // Stars Particle System
+    const stars = Array.from({ length: 150 }, () => ({
       x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.2 + 0.2,
-      a: Math.random() * 0.7 + 0.1,
-      s: Math.random() * 0.25 + 0.05,
+      r: Math.random() * 1.5 + 0.3,
+      a: Math.random() * 0.8 + 0.2,
+      s: Math.random() * 0.3 + 0.1,
       phase: Math.random() * Math.PI * 2,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
     }));
 
     // Nebula blobs
@@ -56,20 +58,53 @@ export function Ambient() {
         ctx.beginPath(); ctx.arc(bx, by, b.r, 0, Math.PI * 2); ctx.fill();
       });
 
-      // Mouse glow
-      const mg = ctx.createRadialGradient(mx, my, 0, mx, my, 350);
-      mg.addColorStop(0, isDark ? "rgba(99,120,255,0.08)" : "rgba(99,120,255,0.04)");
+      // Mouse Tracking Glow
+      const mg = ctx.createRadialGradient(mx, my, 0, mx, my, 400);
+      mg.addColorStop(0, isDark ? "rgba(99,120,255,0.12)" : "rgba(99,120,255,0.06)");
       mg.addColorStop(1, "transparent");
       ctx.fillStyle = mg; ctx.fillRect(0, 0, W, H);
 
-      // Stars (only visible in darkness properly, fade slightly in light mode)
-      stars.forEach(s => {
+      // Stars and Constellation Logic
+      for (let i = 0; i < stars.length; i++) {
+        let s = stars[i];
+        
+        // Gentle drift
+        s.x += s.vx;
+        s.y += s.vy;
+        
+        // Wrap edges
+        if (s.x < 0) s.x = W; if (s.x > W) s.x = 0;
+        if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
+
+        // Draw Star
         const pulse = Math.sin(t * s.s * 4 + s.phase) * 0.3 + 0.7;
         ctx.beginPath(); ctx.arc(s.x, s.y, s.r * pulse, 0, Math.PI * 2);
-        const starAlpha = isDark ? s.a * pulse : (s.a * pulse * 0.4);
+        
+        // Interactive glow near mouse
+        const distToMouse = Math.hypot(s.x - mx, s.y - my);
+        const mouseGlow = distToMouse < 200 ? (200 - distToMouse) / 200 : 0;
+        
+        const starAlpha = isDark ? (s.a * pulse) + mouseGlow : ((s.a * pulse * 0.4) + mouseGlow * 0.5);
         ctx.fillStyle = `rgba(180,190,255,${starAlpha})`; 
         ctx.fill();
-      });
+
+        // Constellation Lines
+        for (let j = i + 1; j < stars.length; j++) {
+          const dx = s.x - stars[j].x;
+          const dy = s.y - stars[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          
+          if (dist < 120) {
+             const lineAlpha = (120 - dist) / 120;
+             ctx.beginPath();
+             ctx.moveTo(s.x, s.y);
+             ctx.lineTo(stars[j].x, stars[j].y);
+             ctx.strokeStyle = isDark ? `rgba(140, 160, 255, ${lineAlpha * 0.2})` : `rgba(100, 120, 255, ${lineAlpha * 0.1})`;
+             ctx.lineWidth = 0.5;
+             ctx.stroke();
+          }
+        }
+      }
 
       raf = requestAnimationFrame(draw);
     };

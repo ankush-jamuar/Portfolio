@@ -15,7 +15,13 @@ export function Achievements() {
   };
 
   return (
-    <div className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto"
+    >
       <AnimatedReveal>
         <div className="mb-16">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
@@ -50,16 +56,18 @@ export function Achievements() {
 
         {/* LeetCode Profile Accent */}
         <AnimatedReveal delay={0.3}>
-          <Card className="p-8 bg-primary/[0.02] border-primary/20 flex flex-col items-center justify-center text-center h-full">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-               <Code2 className="w-8 h-8" />
-            </div>
-            <h3 className="font-display text-[22px] font-bold text-foreground mb-2">LeetCode Master</h3>
-            <p className="font-mono text-[12px] text-muted-foreground uppercase tracking-widest mb-6">@ankush-jamuar</p>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 text-green-500 font-mono text-[10px] font-bold uppercase tracking-wider">
-               <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> Verified Ranking
-            </div>
-          </Card>
+          <a href="https://leetcode.com/u/ankush_jamuar/" target="_blank" rel="noopener noreferrer" className="block h-full">
+            <Card className="p-8 bg-primary/[0.02] hover:bg-primary/[0.05] transition-colors border-primary/20 flex flex-col items-center justify-center text-center h-full group cursor-pointer">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 group-hover:scale-110 transition-transform flex items-center justify-center text-primary mb-6">
+                 <Code2 className="w-8 h-8" />
+              </div>
+              <h3 className="font-display text-[22px] font-bold text-foreground mb-2 group-hover:text-primary transition-colors">LeetCode Master</h3>
+              <p className="font-mono text-[12px] text-muted-foreground uppercase tracking-widest mb-6">@ankush_jamuar</p>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 text-green-500 font-mono text-[10px] font-bold uppercase tracking-wider">
+                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> Verified Ranking
+              </div>
+            </Card>
+          </a>
         </AnimatedReveal>
 
         {/* Badges Grid */}
@@ -84,6 +92,6 @@ export function Achievements() {
         </div>
 
       </div>
-    </div>
+    </motion.div>
   );
 }

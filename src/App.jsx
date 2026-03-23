@@ -1,9 +1,10 @@
-import { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Ambient } from "./components/Ambient";
 import { Cursor } from "./components/Cursor";
 import { Sidebar } from "./components/Sidebar";
 import { Bot } from "./components/Bot";
+import { AnimatePresence } from "framer-motion";
 
 // Pages
 import { Home } from "./pages/Home";
@@ -72,11 +73,11 @@ export default function App() {
         <Sidebar page={page} nav={nav} open={mobOpen} />
 
         {/* Main Content Area */}
-        <main className="flex-1 md:ml-64 relative z-10 w-full min-h-screen">
-          {/* Simple fade boundary key logic for mounting pages */}
-          <div key={page} className="animate-in fade-in duration-500 w-full">
-            {pages[page]}
-          </div>
+        <main className="flex-1 md:ml-64 relative z-10 w-full min-h-screen overflow-x-hidden">
+          {/* AnimatePresence for buttery smooth route cross-fading */}
+          <AnimatePresence mode="wait">
+             {React.cloneElement(pages[page], { key: page })}
+          </AnimatePresence>
         </main>
 
         <Bot />

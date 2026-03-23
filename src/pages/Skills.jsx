@@ -77,7 +77,13 @@ const CATEGORY_ICONS = {
 
 export function Skills() {
   return (
-    <div className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="min-h-screen px-6 md:px-12 py-16 md:py-24 max-w-7xl mx-auto"
+    >
       <AnimatedReveal>
         <div className="mb-16">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
@@ -98,13 +104,13 @@ export function Skills() {
         {SKILLS_CATEGORIES.map((cat, idx) => (
           <AnimatedReveal key={cat.label} delay={idx * 0.1}>
             <div className="relative group perspective-1000">
-              <div className="absolute inset-0 bg-card rounded-[32px] border border-border/50 shadow-sm group-hover:shadow-md transition-shadow duration-500 z-0" />
+              <div className="absolute inset-0 bg-card rounded-[32px] border border-border/50 shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(var(--primary),0.15)] group-hover:-translate-y-2 group-hover:border-primary/40 transition-all duration-500 z-0" />
               
               {/* Inner Minimal Card Content */}
-              <div className="relative z-10 p-8 md:p-12 h-full flex flex-col">
+              <div className="relative z-10 p-8 md:p-12 h-full flex flex-col group-hover:-translate-y-2 transition-transform duration-500">
                 <div className="flex items-center justify-between mb-12 pb-6 border-b border-border/60">
                    <div className="flex items-center gap-5">
-                      <div className="w-12 h-12 rounded-xl bg-muted/30 flex items-center justify-center text-primary border border-border/50">
+                      <div className="w-12 h-12 rounded-xl bg-muted/30 flex items-center justify-center text-primary border border-border/50 group-hover:rotate-12 group-hover:scale-110 group-hover:bg-primary/10 transition-all duration-500 shadow-inner">
                          {CATEGORY_ICONS[cat.label] || <Settings className="w-6 h-6" />}
                       </div>
                       <h3 className="font-display text-[28px] font-black tracking-tight text-foreground">{cat.label}</h3>
@@ -155,6 +161,6 @@ export function Skills() {
           </div>
         </div>
       </AnimatedReveal>
-    </div>
+    </motion.div>
   );
 }
