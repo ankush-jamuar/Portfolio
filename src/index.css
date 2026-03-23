@@ -1,7 +1,7 @@
 @import "tailwindcss";
 * {
   cursor: none !important;
-}
+};
 
 @theme {
   --color-background: var(--background);
