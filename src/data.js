@@ -10,7 +10,7 @@ export const PROFILE = {
   location: "Hazaribagh, JH",
   availability: "Available for opportunities",
   cvFile: "/CVLatest.pdf",
-  photo: "/my.jpg",
+  photo: "/img.png",
 };
 
 export const HOME_WORDS = [
