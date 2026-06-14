@@ -56,7 +56,7 @@ export function Resume() {
       <AnimatedReveal>
         <div className="mb-10 text-center">
           <div className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
-            06. Resume
+            08. Resume
           </div>
           <h2 className="font-display text-[clamp(40px,5vw,56px)] font-black tracking-tight text-foreground mb-4">
             Professional <span className="text-muted-foreground/40 font-light italic">Dashboard</span>

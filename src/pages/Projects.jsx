@@ -18,7 +18,7 @@ export function Projects() {
         <div className="mb-20">
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
             <span className="w-12 h-px block bg-gradient-to-r from-primary to-transparent" />
-            03. Portfolio
+            04. Portfolio
           </div>
           <h2 className="font-display text-[clamp(40px,6vw,64px)] font-black tracking-tight text-foreground mb-4">
             Featured <span className="text-muted-foreground/40 font-light italic">Creations</span>
@@ -71,6 +71,17 @@ export function Projects() {
                     {p.desc}
                   </p>
                 </div>
+
+                {/* Experience/UX Tags */}
+                {p.experience && (
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {p.experience.map(exp => (
+                      <span key={exp} className="font-sans text-[10px] px-2.5 py-1 rounded-lg bg-primary/10 text-primary border border-primary/20 font-extrabold uppercase tracking-wide">
+                        {exp}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
                 {/* Tech Matrix */}
                 <div className="flex flex-wrap gap-2 mb-10">

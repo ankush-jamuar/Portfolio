@@ -19,9 +19,10 @@ export function Certs() {
     >
       <AnimatedReveal>
         <div className="mb-16">
+
           <div className="flex items-center gap-3 font-mono text-[11px] tracking-[4px] uppercase mb-4 text-primary font-bold">
             <span className="w-12 h-px block bg-gradient-to-r from-primary to-transparent" />
-            04. Credentials
+            06. Credentials
           </div>
           <h2 className="font-display text-[clamp(40px,6vw,64px)] font-black tracking-tight text-foreground mb-4">
             Professional <span className="text-muted-foreground/40 font-light italic">Validation</span>

@@ -37,17 +37,17 @@ export function Home({ nav }) {
 
               <div className="space-y-4">
                 <h1 className="font-display text-[clamp(44px,7vw,76px)] font-black tracking-tight leading-[1.05] text-foreground">
-                  Building <br />
+                  Designing & Building <br />
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-[#a78bfa] to-[#38bdf8]">
-                    Future-Ready Apps
+                    Intelligent Digital Experiences
                   </span>
                 </h1>
                 <div className="h-[1.5em] font-display font-bold text-[clamp(24px,3vw,34px)] text-foreground/80 flex items-center justify-center lg:justify-start">
                   <TypeAnimation
                     sequence={[
-                      'Full Stack Developer', 2000,
-                      'Frontend Engineer', 2000,
-                      'React Architect', 2000,
+                      'Product-Minded Developer', 2000,
+                      'UI/UX Enthusiast', 2000,
+                      'Frontend Architect', 2000,
                       'Creative Problem Solver', 2000
                     ]}
                     wrapper="span"
@@ -58,8 +58,7 @@ export function Home({ nav }) {
                   />
                 </div>
                 <p className="font-sans text-[18px] md:text-[20px] text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 font-light pt-2">
-                  I'm <span className="text-foreground font-semibold">{PROFILE.name}</span>, a professional <span className="text-foreground font-medium">{PROFILE.role}</span> with 
-                  deep focus on scalable architectures and exceptional user experiences.
+                  I’m <span className="text-foreground font-semibold">{PROFILE.name}</span>, a product-minded developer passionate about creating intuitive user experiences, scalable applications, and AI-powered products that solve real-world problems.
                 </p>
               </div>
 
@@ -108,8 +107,8 @@ export function Home({ nav }) {
                        <Code2 className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                       <p className="font-display text-[15px] font-bold text-foreground leading-tight">Full Stack</p>
-                       <p className="font-sans text-[12px] text-muted-foreground">Architect</p>
+                       <p className="font-display text-[15px] font-bold text-foreground leading-tight">Product</p>
+                       <p className="font-sans text-[12px] text-muted-foreground">Developer</p>
                     </div>
                  </div>
               </div>
@@ -118,11 +117,11 @@ export function Home({ nav }) {
               <div className="absolute bottom-20 -right-6 md:-right-12 z-20 animate-[bounce_5s_infinite_1s]">
                  <div className="p-3 pr-5 rounded-2xl flex items-center gap-3 shadow-xl bg-background/90 backdrop-blur-md border border-border/50">
                     <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center">
-                       <Globe className="w-6 h-6 text-[#a78bfa]" />
+                       <Sparkles className="w-6 h-6 text-[#a78bfa]" />
                     </div>
                     <div>
-                       <p className="font-display text-[15px] font-bold text-foreground leading-tight">Global</p>
-                       <p className="font-sans text-[12px] text-muted-foreground">Impact</p>
+                       <p className="font-display text-[15px] font-bold text-foreground leading-tight">Intuitive</p>
+                       <p className="font-sans text-[12px] text-muted-foreground">Experiences</p>
                     </div>
                  </div>
               </div>

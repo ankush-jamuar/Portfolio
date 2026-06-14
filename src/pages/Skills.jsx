@@ -3,7 +3,7 @@ import { SKILLS_CATEGORIES, SOFT_SKILLS } from "../data";
 import { AnimatedReveal } from "../components/ui/AnimatedReveal";
 import { Card } from "../components/ui/Card";
 import { motion } from "framer-motion";
-import { Sparkles, Layout, Database, Smartphone, Settings } from "lucide-react";
+import { Sparkles, Layout, Database, Smartphone, Settings, Palette } from "lucide-react";
 import * as si from "simple-icons";
 
 const iconMap = {
@@ -72,6 +72,7 @@ const CATEGORY_ICONS = {
   "Languages": <Settings className="w-5 h-5" />,
   "Frameworks & Libs": <Layout className="w-5 h-5" />,
   "Mobile Dev": <Smartphone className="w-5 h-5" />,
+  "Design": <Palette className="w-5 h-5" />,
   "Tools & Platforms": <Database className="w-5 h-5" />,
 };
 

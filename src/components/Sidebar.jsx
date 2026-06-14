@@ -1,12 +1,14 @@
-import { Home as HomeIcon, Box, Briefcase, Award, Trophy, FileText, Mail, Github, Linkedin, Phone } from "lucide-react";
+import { Home as HomeIcon, User, Box, Briefcase, BookOpen, Award, Trophy, FileText, Mail, Github, Linkedin, Phone } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { PROFILE } from "../data";
 import { cn } from "../lib/utils";
 
 const NAV = [
   { id: "home",          lbl: "Home",          ic: HomeIcon },
+  { id: "about",         lbl: "About",         ic: User },
   { id: "skills",        lbl: "Skills",        ic: Box },
   { id: "projects",      lbl: "Projects",      ic: Briefcase },
+  { id: "case-studies",  lbl: "Case Studies",  ic: BookOpen },
   { id: "certifications",lbl: "Certifications",ic: Award },
   { id: "achievements",  lbl: "Achievements",  ic: Trophy },
   { id: "resume",        lbl: "Resume",        ic: FileText },

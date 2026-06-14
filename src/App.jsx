@@ -8,8 +8,10 @@ import { AnimatePresence } from "framer-motion";
 
 // Pages
 import { Home } from "./pages/Home";
+import { About } from "./pages/About";
 import { Skills } from "./pages/Skills";
 import { Projects } from "./pages/Projects";
+import { CaseStudies } from "./pages/CaseStudies";
 import { Certs } from "./pages/Certs";
 import { Achievements } from "./pages/Achievements";
 import { Resume } from "./pages/Resume";
@@ -29,8 +31,10 @@ export default function App() {
   // Map of available pages
   const pages = {
     home: <Home nav={nav} />,
+    about: <About />,
     skills: <Skills />,
     projects: <Projects />,
+    "case-studies": <CaseStudies />,
     certifications: <Certs />,
     achievements: <Achievements />,
     resume: <Resume />,
